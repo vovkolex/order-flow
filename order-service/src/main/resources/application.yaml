@@ -1,4 +1,12 @@
 spring:
+  application:
+    name: order-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/orderflow
+    username: orderflow
+    password: orderflow_dev
+
   jpa:
     open-in-view: false
     hibernate:
@@ -6,6 +14,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  flyway:
+    enabled: true
 
 logging:
   level:
