@@ -1,0 +1,17 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Maven
+target/
+
+# macOS
+.DS_Store
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log

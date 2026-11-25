@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: orderflow-postgres
+    environment:
+      POSTGRES_USER: orderflow
+      POSTGRES_PASSWORD: orderflow_dev
+      POSTGRES_DB: orderflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U orderflow -d orderflow" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
